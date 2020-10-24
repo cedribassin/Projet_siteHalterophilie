@@ -10,8 +10,8 @@ class AccueilController extends AbstractController
     /**
      * @Route("/", name="accueil")
      */
-    public function index()
+    public function accueil()
     {
-        return $this->render('accueil/index.html.twig');
+        return $this->render('accueil/accueil.html.twig');
     }
 }
