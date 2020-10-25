@@ -22,19 +22,18 @@ class MouvementRepository extends ServiceEntityRepository
     // /**
     //  * @return Mouvement[] Returns an array of Mouvement objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    //Fonction qui permet de récupérer les mouvements selon leur type
+    public function getMouvementParType($value)
     {
         return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('m.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('m.nom like :val')
+            ->setParameter('val','%'.$value.'%')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Mouvement

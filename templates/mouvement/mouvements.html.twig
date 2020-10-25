@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Mouvement{% endblock %}
-{% block monTitre %}Les différents mouvements{% endblock %}
+{% block monTitre %}Les différentes familles de mouvements{% endblock %}
 {% block body %}
-<div>
+<div class="text-center">
     <h2 class="m-2">Les mouvements debout</h2> 
     <p class="m-2 text-justify" >
         Les mouvements debout consistent à supprimer la phase du passage lors de l’arraché, l’épaulé ou encore le jeté. En comparaison du mouvement global, la réception s’effectue sur une petite amplitude correspondant à un ¼ de flexion au niveau des genoux.
@@ -14,7 +14,8 @@
     </p>
 </div>
 <div class="text-center">
-    <a href="{{ path("mouvement_detail") }}" class="btn btn-info">Plus d'information</a>
+    <a href="{{ path("mouvement_debout") }}" class="btn btn-info">Plus d'information</a>
+<div>
 <div>
     <h2 class="m-2">Les mouvements en puissance</h2> 
     <p class="m-2 text-justify" >
@@ -25,7 +26,19 @@ Utilisés de façon exagérée, ils peuvent aussi nuire à la fin de l’impulsi
     </p>
 </div>
 <div class="text-center">
-    <a href="{{ path("mouvement_detail") }}" class="btn btn-info">Plus d'information</a>
+    <a href="{{ path("mouvement_puissance") }}" class="btn btn-info">Plus d'information</a>
 </div>
+<div>
+    <h2 class="m-2">Les mouvements en force</h2> 
+    <p class="m-2 text-justify" >
+        Ils sont généralement utilisés pour un travail de renforcement musculaire en insistant sur l’impulsion des jambes, le tirage des bras, la montée des épaules et enfin des coudes (pour l’arraché et l’épaulé), ainsi que la poussée des bras (pour le jeté). On peut aussi les utiliser pour remédier aux défauts de trajectoire de la barre.
+        Essentiellement réalisés du sol, ils consistent à faire les mouvements techniques en terminant debout sans aucun retour flexion, ni déplacement des pieds. Les pratiquants terminent entièrement grandi sur la pointe des pieds.
+        Utilisés de façon exagérée, ils peuvent nuire à la phase du passage.
+    </p>
+</div>
+<div class="text-center">
+    <a href="{{ path("mouvement_force") }}" class="btn btn-info">Plus d'information</a>
+</div>
+
 
 {% endblock %}
