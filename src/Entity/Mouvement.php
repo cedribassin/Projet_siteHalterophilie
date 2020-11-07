@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MouvementRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,22 @@ class Mouvement
      * @ORM\Column(type="text")
      */
     private $correctif;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=TypeMouvement::class, mappedBy="mouvement")
+     */
+    private $typeMouvements;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="mouvement")
+     */
+    private $images;
+
+    public function __construct()
+    {
+        $this->typeMouvements = new ArrayCollection();
+        $this->images = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +138,65 @@ class Mouvement
     public function setCorrectif(string $correctif): self
     {
         $this->correctif = $correctif;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TypeMouvement[]
+     */
+    public function getTypeMouvements(): Collection
+    {
+        return $this->typeMouvements;
+    }
+
+    public function addTypeMouvement(TypeMouvement $typeMouvement): self
+    {
+        if (!$this->typeMouvements->contains($typeMouvement)) {
+            $this->typeMouvements[] = $typeMouvement;
+            $typeMouvement->addMouvement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTypeMouvement(TypeMouvement $typeMouvement): self
+    {
+        if ($this->typeMouvements->contains($typeMouvement)) {
+            $this->typeMouvements->removeElement($typeMouvement);
+            $typeMouvement->removeMouvement($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Image[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setMouvement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): self
+    {
+        if ($this->images->contains($image)) {
+            $this->images->removeElement($image);
+            // set the owning side to null (unless already changed)
+            if ($image->getMouvement() === $this) {
+                $image->setMouvement(null);
+            }
+        }
 
         return $this;
     }

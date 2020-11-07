@@ -2,21 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Mouvement;
 use App\Repository\MouvementRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MouvementController extends AbstractController
 {
-    /**
-     * @Route("/mouvements", name="mouvements")
-     */
-    public function mouvements()
-    {
-        return $this->render('mouvement/mouvements.html.twig');
-    }
-
-
+   
     /**
      * @Route("/mouvement/debout", name="mouvement_debout")
      */
@@ -25,7 +18,7 @@ class MouvementController extends AbstractController
     {
         //getMouvementParType() => fonction codée dans MouvementRepository
         $mouvements = $repository->getMouvementParType('debout');
-        return $this->render('mouvement/mouvementDetail.html.twig', [
+        return $this->render('mouvement/mouvementListe.html.twig', [
             "mouvements"=>$mouvements
         ]);
     }
@@ -38,7 +31,7 @@ class MouvementController extends AbstractController
     {
         //getMouvementParType() => fonction codée dans MouvementRepository
         $mouvements = $repository->getMouvementParType('puissance');
-        return $this->render('mouvement/mouvementDetail.html.twig', [
+        return $this->render('mouvement/mouvementListe.html.twig', [
             "mouvements"=>$mouvements
         ]);
     }
@@ -51,8 +44,18 @@ class MouvementController extends AbstractController
     {
         //getMouvementParType() => fonction codée dans MouvementRepository
         $mouvements = $repository->getMouvementParType('force');
-        return $this->render('mouvement/mouvementDetail.html.twig', [
+        return $this->render('mouvement/mouvementListe.html.twig', [
             "mouvements"=>$mouvements
+        ]);
+    }
+
+    /**
+     * @Route("/mouvement/{id}", name="mouvement_detail")
+     */
+    public function getMouvementDetail(Mouvement $mouvement)
+    {
+        return $this->render('mouvement/mouvementDetail.html.twig', [
+            "mouvement"=>$mouvement
         ]);
     }
 

@@ -1,17 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Mouvements{% endblock %}
-{% block monTitre %}Liste des mouvements ... {% endblock %}
+{% block monTitre %}Détails du mouvement : {{mouvement.nom}} {% endblock %}
 {% block body %}
-<div class="row mx-2">
-  {% for mouvement in mouvements %}
-  <div class="col-lg-4 col-md-3 col-sd-2 card border-info m-3" style="max-width: 20rem;">
-      <div class="card-header">{{mouvement.nom|capitalize}}</div>
-      <div class="card-body">
-        <h4 class="card-title text-justify">info</h4>
-        <p class="card-text">{{mouvement.objectif}}</p>
-      </div>
-  </div>
-{% endfor %}
+<div class="row m-2">
+    <div class="col-6 m-2">
+        <h2>Objectifs</h2>
+        <p class="text-justify">{{mouvement.objectif}}</p>
+        <h2>Consignes</h2>
+        <p class="text-justify">{{mouvement.consignes}}</p>
+        <h2>Erreurs courantes</h2>
+        <p class="text-justify">{{mouvement.erreur}}</p>
+        <h2>Correctifs possibles</h2>
+        <p class="text-justify">{{mouvement.correctif}}</p>
+        <div class="text-center"><a href="{{path('mouvements')}}" class="btn btn-primary">Retour au mouvements</a></div>
+    </div>
+    <div class="col-6">
+        
+    </div>
 </div>
 {% endblock %}

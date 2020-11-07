@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mouvement{% endblock %}
+{% block monTitre %}Les différentes familles de mouvements{% endblock %}
+{% block body %}
+{% for type in types %}
+<div class="text-center">
+    <h2 class="m-2">{{ type.libelle }}</h2> 
+    <p class="m-2 text-justify policePerso" >
+        {{ type.description }}
+    </p>
+</div>
+{% endfor %}
+{% endblock %}
