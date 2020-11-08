@@ -9,6 +9,7 @@
     <p class="m-2 text-justify policePerso" >
         {{ type.description }}
     </p>
+    <a href="{{path('afficher_type_mouvement', {'id': type.id})}}" class="btn btn-primary">Detail</a>
 </div>
 {% endfor %}
 {% endblock %}

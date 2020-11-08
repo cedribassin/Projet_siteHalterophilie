@@ -19,6 +19,18 @@ class TypeMouvementRepository extends ServiceEntityRepository
         parent::__construct($registry, TypeMouvement::class);
     }
 
+     //Fonction qui permet de récupérer les mouvements selon leur type
+     public function getMouvementType($value)
+     {
+         return $this->createQueryBuilder('m')
+             ->andWhere('m.libelle like :val')
+             ->setParameter('val','%'.$value.'%')
+             ->getQuery()
+             ->getResult()
+         ;
+     }
+     
+
     // /**
     //  * @return TypeMouvement[] Returns an array of TypeMouvement objects
     //  */
