@@ -50,19 +50,18 @@ class Mouvement
     private $correctif;
 
     /**
-     * @ORM\ManyToMany(targetEntity=TypeMouvement::class, mappedBy="mouvement")
+     * @ORM\ManyToMany(targetEntity=TypeMouvement::class, mappedBy="mouvement", cascade={"persist"})
      */
     private $typeMouvements;
 
     /**
-     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="mouvement")
+     * @ORM\Column(type="string", length=255)
      */
-    private $images;
+    private $image;
 
     public function __construct()
     {
         $this->typeMouvements = new ArrayCollection();
-        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -170,33 +169,14 @@ class Mouvement
         return $this;
     }
 
-    /**
-     * @return Collection|Image[]
-     */
-    public function getImages(): Collection
+    public function getImage(): ?string
     {
-        return $this->images;
+        return $this->image;
     }
 
-    public function addImage(Image $image): self
+    public function setImage(string $image): self
     {
-        if (!$this->images->contains($image)) {
-            $this->images[] = $image;
-            $image->setMouvement($this);
-        }
-
-        return $this;
-    }
-
-    public function removeImage(Image $image): self
-    {
-        if ($this->images->contains($image)) {
-            $this->images->removeElement($image);
-            // set the owning side to null (unless already changed)
-            if ($image->getMouvement() === $this) {
-                $image->setMouvement(null);
-            }
-        }
+        $this->image = $image;
 
         return $this;
     }

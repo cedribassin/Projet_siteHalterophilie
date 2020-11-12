@@ -30,7 +30,7 @@ class TypeMouvement
     private $image;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Mouvement::class, inversedBy="typeMouvements")
+     * @ORM\ManyToMany(targetEntity=Mouvement::class, inversedBy="typeMouvements", cascade={"persist"})
      */
     private $mouvement;
 

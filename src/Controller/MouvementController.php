@@ -11,7 +11,7 @@ class MouvementController extends AbstractController
 {
    
     /**
-     * @Route("/mouvement/{id}", name="mouvement_detail")
+     * @Route("/client/mouvement/{id}", name="mouvement_detail")
      */
     public function getMouvementDetail(Mouvement $mouvement)
     {

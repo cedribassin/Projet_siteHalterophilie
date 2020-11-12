@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Image;
 use App\Entity\Mouvement;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -31,9 +32,9 @@ class MouvementFixtures extends Fixture
                 en-dessous, jambes fléchis avec les articulations des hanches sous les genoux et les bras toujours tendus. Ensuite l'athlète se redresse entièrement 
                 en conservant les bras tendus et le dos fixé.")
                 ->setErreur("Nombreuses, dans les 6 phases du mouvement")
-                ->setCorrectif("Utilisation appropriée des mouvements semi-techniques");
+                ->setCorrectif("Utilisation appropriée des mouvements semi-techniques")
+                ->setImage("Arrache.jpg");
                 $manager->persist($mouvement1);
-                $manager->flush();
     
 
         $mouvement2=new Mouvement();
@@ -54,9 +55,9 @@ class MouvementFixtures extends Fixture
                 en-dessous, en ayant les jambes et les genoux légèrement fléchis (seulement 1/4 de flexion), et les bras toujours tendus. Ensuite l'athlète se redresse entièrement 
                 en conservant les bras tendus et le dos fixé.")
                 ->setErreur("Tirage prématuré des bras, manque d'extension, saut non vertical avec réception décalée en AV/AR et/ou trop basse")
-                ->setCorrectif("Arraché force, arraché debout en suspension ou des plots, THA, THA en suspension ou des plots, utilisation de repères au sol");
+                ->setCorrectif("Arraché force, arraché debout en suspension ou des plots, THA, THA en suspension ou des plots, utilisation de repères au sol")
+                ->setImage("ArrDebout.jpg");
                 $manager->persist($mouvement2);
-                $manager->flush();
 
         $mouvement3=new Mouvement();
         $mouvement3->setNom("arraché des plots")
@@ -76,9 +77,9 @@ class MouvementFixtures extends Fixture
                 en-dessous, jambes fléchis avec les articulations des hanches sous les genoux et les bras toujours tendus. Ensuite l'athlète se redresse entièrement 
                 en conservant les bras tendus et le dos fixé.")
                 ->setErreur("Tirage prématuré des bras, manque d'extension, équilibre en réception et manque d'amplitude dans la chute")
-                ->setCorrectif("Arraché debout en suspension ou des plots, arraché force + squat d'arraché, repères au sol");
+                ->setCorrectif("Arraché debout en suspension ou des plots, arraché force + squat d'arraché, repères au sol")
+                ->setImage("ArrPlot.jpg");
                 $manager->persist($mouvement3);
-                $manager->flush();
 
         $mouvement4=new Mouvement();
         $mouvement4->setNom("arraché suspension")
@@ -98,9 +99,9 @@ class MouvementFixtures extends Fixture
                 en-dessous, jambes fléchis avec les articulations des hanches sous les genoux et les bras toujours tendus. Ensuite l'athlète se redresse entièrement 
                 en conservant les bras tendus et le dos fixé.")
                 ->setErreur("Tirage prématuré des bras, manque d'extension, équilibre en réception et manque d'amplitude dans la chute")
-                ->setCorrectif("Arraché debout en suspension ou des plots, arraché force + squat d'arraché, repères au sol");
+                ->setCorrectif("Arraché debout en suspension ou des plots, arraché force + squat d'arraché, repères au sol")
+                ->setImage("ArrSusp.jpg");
                 $manager->persist($mouvement4);
-                $manager->flush();
         
         $mouvement5=new Mouvement();
         $mouvement5->setNom("arraché puissance")
@@ -119,9 +120,9 @@ class MouvementFixtures extends Fixture
                 (en faisant un tirage vers le haut) pour passer rapidement en-dessous, jambes fléchis avec les articulations des hanches sous les genoux et les bras toujours tendus. 
                 Ensuite l'athlète se redresse entièrement en conservant les bras tendus et le dos fixé.")
                 ->setErreur("Barre devant ou derrière entraînant un déséquilibre, manque de tirage des bras")
-                ->setCorrectif("Arraché force + squat d'arraché, TBA");
+                ->setCorrectif("Arraché force + squat d'arraché, TBA")
+                ->setImage("ArrPuis.jpg");
                 $manager->persist($mouvement5);
-                $manager->flush();
 
         $mouvement6=new Mouvement();
         $mouvement6->setNom("arraché debout en suspension")
@@ -141,9 +142,9 @@ class MouvementFixtures extends Fixture
                 en-dessous, en ayant les jambes et les genoux légèrement fléchis (seulement 1/4 de flexion), et les bras toujours tendus. Ensuite l'athlète se redresse entièrement 
                 en conservant les bras tendus et le dos fixé.")
                 ->setErreur("Tirage prématuré des bras, manque d'extension et de poussée des jambes, saut non vertical avec réception décalée en AV/AR et/ou trop basse")
-                ->setCorrectif("Arraché force en suspension ou des plots, repères au sol, sauts verticaux sur box, squat");
+                ->setCorrectif("Arraché force en suspension ou des plots, repères au sol, sauts verticaux sur box, squat")
+                ->setImage("ArrDebSusp.jpg");
                 $manager->persist($mouvement6);
-                $manager->flush();
         
         $mouvement7=new Mouvement();
         $mouvement7->setNom("arraché debout des plots")
@@ -163,9 +164,9 @@ class MouvementFixtures extends Fixture
                 en-dessous, en ayant les jambes et les genoux légèrement fléchis (seulement 1/4 de flexion), et les bras toujours tendus. Ensuite l'athlète se redresse entièrement 
                 en conservant les bras tendus et le dos fixé.")
                 ->setErreur("Tirage prématuré des bras, manque d'extension et de poussée des jambes, saut non vertical avec réception décalée en AV/AR et/ou trop basse")
-                ->setCorrectif("Arraché force en suspension ou des plots, repères au sol, sauts verticaux sur box, squat");
+                ->setCorrectif("Arraché force en suspension ou des plots, repères au sol, sauts verticaux sur box, squat")
+                ->setImage("ArrDebPlot.jpg");
                 $manager->persist($mouvement7);
-                $manager->flush();
 
                     
         $mouvement8=new Mouvement();
@@ -185,9 +186,9 @@ class MouvementFixtures extends Fixture
                 (en faisant un tirage vers le haut) pour passer rapidement en-dessous, jambes fléchis avec les articulations des hanches sous les genoux et les bras toujours tendus. 
                 Ensuite l'athlète se redresse entièrement en conservant les bras tendus et le dos fixé.")
                 ->setErreur("Barre devant ou derrière entraînant un déséquilibre, manque de poussée des jambes et de tirage des bras")
-                ->setCorrectif("Arraché force + squat d'arraché, TBA, sauts verticaux, squat");
+                ->setCorrectif("Arraché force + squat d'arraché, TBA, sauts verticaux, squat")
+                ->setImage("ArrPuisDeb.jpg");
                 $manager->persist($mouvement8);
-                $manager->flush();
 
         $mouvement9=new Mouvement();
         $mouvement9->setNom("arraché puissance en suspension")
@@ -207,10 +208,11 @@ class MouvementFixtures extends Fixture
                 (en faisant un tirage vers le haut) pour passer rapidement en-dessous, jambes fléchis avec les articulations des hanches sous les genoux et les bras toujours tendus. 
                 Ensuite l'athlète se redresse entièrement en conservant les bras tendus et le dos fixé.")
                 ->setErreur("Barre devant ou derrière entraînant un déséquilibre, manque de poussée des jambes et/ou tirage des bras, manque d'amplitude en flexion")
-                ->setCorrectif("Arraché force + squat d'arraché, TBA, sauts verticaux, chute d'arraché, squat");
+                ->setCorrectif("Arraché force + squat d'arraché, TBA, sauts verticaux, chute d'arraché, squat")
+                ->setImage("ArrPuisSusp.jpg");
                 $manager->persist($mouvement9);
-                $manager->flush();
 
+                
         $mouvement10=new Mouvement();
         $mouvement10->setNom("arraché puissance des plots")
                 ->setObjectif("Cet exercice est pratiqué pour renforcer le mouvement de l'arraché technique 
@@ -229,10 +231,11 @@ class MouvementFixtures extends Fixture
                 (en faisant un tirage vers le haut) pour passer rapidement en-dessous, jambes fléchis avec les articulations des hanches sous les genoux et les bras toujours tendus. 
                 Ensuite l'athlète se redresse entièrement en conservant les bras tendus et le dos fixé.")
                 ->setErreur("Barre devant ou derrière entraînant un déséquilibre, manque de poussée des jambes et/ou tirage des bras, manque d'amplitude en flexion")
-                ->setCorrectif("Arraché force + squat d'arraché, TBA, sauts verticaux, chute d'arraché, squat");
+                ->setCorrectif("Arraché force + squat d'arraché, TBA, sauts verticaux, chute d'arraché, squat")
+                ->setImage("ArrPuisPlot.jpg");
                 $manager->persist($mouvement10);
-                $manager->flush();
 
+                
         $mouvement11=new Mouvement();
         $mouvement11->setNom("arraché puissance debout des plots")
                 ->setObjectif("Cet exercice est pratiqué pour renforcer le mouvement de l'arraché technique 
@@ -251,10 +254,11 @@ class MouvementFixtures extends Fixture
                 (en faisant un tirage vers le haut) pour passer rapidement en-dessous, en ayant les jambes et les genoux légèrement fléchis (seulement 1/4 de flexion) 
                 avec les articulations des hanches sous les genoux et les bras toujours tendus. Ensuite l'athlète se redresse entièrement en conservant les bras tendus et le dos fixé.")
                 ->setErreur("Barre devant ou derrière entraînant un déséquilibre, manque de poussée des jambes et/ou tirage des bras")
-                ->setCorrectif("Arraché force des plots + squat d'arraché, TBA, sauts verticaux, squat");
+                ->setCorrectif("Arraché force des plots + squat d'arraché, TBA, sauts verticaux, squat")
+                ->setImage("ArrPuisDebPlot.jpg");
                 $manager->persist($mouvement11);
-                $manager->flush();
 
+                
         $mouvement12=new Mouvement();
         $mouvement12->setNom("arraché puissance debout en suspension")
                 ->setObjectif("Cet exercice est pratiqué pour renforcer le mouvement de l'arraché technique 
@@ -273,10 +277,11 @@ class MouvementFixtures extends Fixture
                 (en faisant un tirage vers le haut) pour passer rapidement en-dessous, en ayant les jambes et les genoux légèrement fléchis (seulement 1/4 de flexion) 
                 avec les articulations des hanches sous les genoux et les bras toujours tendus. Ensuite l'athlète se redresse entièrement en conservant les bras tendus et le dos fixé.")
                 ->setErreur("Barre devant ou derrière entraînant un déséquilibre, manque de poussée des jambes et/ou tirage des bras")
-                ->setCorrectif("Arraché force des plots + squat d'arraché, TBA, sauts verticaux, squat");
+                ->setCorrectif("Arraché force des plots + squat d'arraché, TBA, sauts verticaux, squat")
+                ->setImage("ArrPuisDebSusp.jpg");
                 $manager->persist($mouvement12);
-                $manager->flush();
 
+                
         $mouvement13=new Mouvement();
         $mouvement13->setNom("arraché force")
                 ->setObjectif("C’est un mouvement qui permet notamment de travailler la trajectoire de barre 
@@ -294,10 +299,11 @@ class MouvementFixtures extends Fixture
                 vers le haut (les poignets \"cassés\" pour conserver la barre le plus proche possible du corps) en réalisant un tirage de la barre, le corps entièrement
                 grandi.")
                 ->setErreur("Fessiers trop haut entraînant une mauvaise extension et une barre éloignée du corps")
-                ->setCorrectif("Arraché force suspension, TBA, mouvements au ralenti pour le ressenti");
+                ->setCorrectif("Arraché force suspension, TBA, mouvements au ralenti pour le ressenti")
+                ->setImage("ArrForce.jpg");
                 $manager->persist($mouvement13);
-                $manager->flush();
 
+                
         $mouvement14=new Mouvement();
         $mouvement14->setNom("Arraché force en suspension")
                 ->setObjectif("C’est un mouvement qui permet notamment de travailler la trajectoire de barre 
@@ -316,10 +322,11 @@ class MouvementFixtures extends Fixture
                 vers le haut (les poignets \"cassés\" pour conserver la barre le plus proche possible du corps) en réalisant un tirage de la barre, le corps entièrement
                 grandi.")
                 ->setErreur("Fessiers trop haut entraînant une mauvaise extension et une barre éloignée du corps")
-                ->setCorrectif("Arraché force suspension, TBA, mouvements au ralenti pour le ressenti");
+                ->setCorrectif("Arraché force suspension, TBA, mouvements au ralenti pour le ressenti")
+                ->setImage("ArrForceSusp.jpg");
                 $manager->persist($mouvement14);
-                $manager->flush();
 
+                
         $mouvement15=new Mouvement();
         $mouvement15->setNom("Arraché force des plots")
                 ->setObjectif("C’est un mouvement qui permet notamment de travailler la trajectoire de barre 
@@ -338,8 +345,10 @@ class MouvementFixtures extends Fixture
                 vers le haut (les poignets \"cassés\" pour conserver la barre le plus proche possible du corps) en réalisant un tirage de la barre, le corps entièrement
                 grandi.")
                 ->setErreur("Fessiers trop haut entraînant une mauvaise extension et une barre éloignée du corps")
-                ->setCorrectif("Arraché force suspension, TBA, mouvements au ralenti pour le ressenti");
+                ->setCorrectif("Arraché force suspension, TBA, mouvements au ralenti pour le ressenti")
+                ->setImage("ArrForcePlot.jpg");
                 $manager->persist($mouvement15);
+
                 $manager->flush();
 
     }

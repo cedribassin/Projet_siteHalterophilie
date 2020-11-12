@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}admin mouvement{% endblock %}
+{% block monTitre %}Administration des mouvements{% endblock %}
+{% block body %}
+<a href="{{path('admin_creation')}}" class="m-3 btn btn-success btn-lg btn-block">Ajouter</a>
+    {% for mouvement in mouvements %}
+    <div class="row m-2">
+        <div class="col border border-dark justify-content-center m-3">
+            <h3>{{mouvement.nom}}</h3>
+            <p class="text-justify">{{mouvement.objectif}}</p>
+        </div>
+        <div class="col">
+            <div class="row ">
+                <a href="" class="m-2 btn btn-warning">Modifier</a>
+            </div>
+            <div class="row align-items-center">
+                <a href="" class="m-2 btn btn-danger">Supprimer</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
