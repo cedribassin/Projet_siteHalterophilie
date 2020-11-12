@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+{% block monTitre %}Ajout/Modification Type de mouvement{% endblock %}
+{% block body %}
+<div class="row">
+<div class="col-md-6 offset-md-3">
+  {{form_start(form)}}
+            <div>{{form_row(form.libelle)}}</div>
+            <div>{{form_row(form.image)}}</div>
+            {{form_widget(form)}}
+      <input type="submit" class="btn btn-primary" value="Enregistrer">
+  {{form_end(form)}}
+</div>
+</div>
+</div>
+{% endblock %}
