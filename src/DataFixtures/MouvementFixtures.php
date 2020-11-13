@@ -14,7 +14,7 @@ class MouvementFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
-        $mouvement1=new Mouvement();
+        /* $mouvement1=new Mouvement();
         $mouvement1->setNom("arraché")
                 ->setObjectif("Amener une barre le plus lourdement chargée, du sol au-dessus de la tête, entièrement grandit
                 et bras tendu, en un seul mouvement")
@@ -349,7 +349,7 @@ class MouvementFixtures extends Fixture
                 ->setImage("ArrForcePlot.jpg");
                 $manager->persist($mouvement15);
 
-                $manager->flush();
+                $manager->flush(); */
 
     }
 

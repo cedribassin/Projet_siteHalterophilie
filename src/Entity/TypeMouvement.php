@@ -2,13 +2,17 @@
 
 namespace App\Entity;
 
-use App\Repository\TypeMouvementRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\TypeMouvementRepository;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=TypeMouvementRepository::class)
+ * @Vich\Uploadable
  */
 class TypeMouvement
 {
@@ -30,6 +34,12 @@ class TypeMouvement
     private $image;
 
     /**
+     * @Vich\UploadableField(mapping="typeMouvement_images", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
      * @ORM\ManyToMany(targetEntity=Mouvement::class, inversedBy="typeMouvements", cascade={"persist"})
      */
     private $mouvement;
@@ -38,6 +48,12 @@ class TypeMouvement
      * @ORM\Column(type="text")
      */
     private $description;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updated_at;
 
     public function __construct()
     {
@@ -61,16 +77,14 @@ class TypeMouvement
         return $this;
     }
 
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image): self
+    public function setImage($image)
     {
         $this->image = $image;
+    }
 
-        return $this;
+    public function getImage()
+    {
+        return $this->image;
     }
 
     /**
@@ -110,4 +124,35 @@ class TypeMouvement
 
         return $this;
     }
+    
+    public function setImageFile(?File $imageFile = null): self
+    {
+        $this->imageFile = $imageFile;
+
+        //On test si on a bien récupéré une info de type UploadedFile
+        if($this->imageFile instanceof UploadedFile){
+            $this->updated_at = new \DateTime('now');
+        }
+        return $this;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    
 }

@@ -6,6 +6,7 @@ use App\Entity\TypeMouvement;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class TypeMouvementType extends AbstractType
 {
@@ -13,7 +14,7 @@ class TypeMouvementType extends AbstractType
     {
         $builder
             ->add('libelle')
-            ->add('image')
+            ->add('imageFile', FileType::class, ['required'=>false])
             ->add('description')
             ->add('mouvement')
         ;

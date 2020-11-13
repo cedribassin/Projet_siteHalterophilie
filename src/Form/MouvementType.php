@@ -7,6 +7,7 @@ use App\Entity\TypeMouvement;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class MouvementType extends AbstractType
@@ -20,7 +21,7 @@ class MouvementType extends AbstractType
             ->add('consignes')
             ->add('erreur')
             ->add('correctif')
-            ->add('image')
+            ->add('imageFile', FileType::class, ['required'=>false])
             ->add('typeMouvements', EntityType::class, [ 
                 'class' => TypeMouvement::class, 
                 'choice_label' => 'libelle',

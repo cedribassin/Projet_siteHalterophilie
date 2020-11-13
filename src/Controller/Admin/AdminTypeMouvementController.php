@@ -9,6 +9,7 @@ use App\Repository\TypeMouvementRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -39,7 +40,7 @@ class AdminTypeMouvementController extends AbstractController
 
         $form = $this->createFormBuilder($typeMouvement)
             ->add('libelle', TextType::class)
-            ->add('image', TextType::class)
+            ->add('imageFile', FileType::class, ['required'=>false])
             ->add('description', TextareaType::class)
             ->add('mouvement', EntityType::class, [ 
                 'class' => Mouvement::class, 

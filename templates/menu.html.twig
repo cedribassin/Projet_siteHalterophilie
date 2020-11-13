@@ -13,11 +13,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ path("mouvements") }}">Les mouvements halterophiles</a>
             </li>
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administration</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="{{path('admin_mouvements')}}">Admin Mouvement</a>
-              <a class="dropdown-item" href="{{path('admin_types')}}">Admin Type Mouvement</a>
-            </div>
+            <li class="nav-item dropdown show">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administration</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="{{path('admin_mouvements')}}">Admin Mouvement</a>
+                <a class="dropdown-item" href="{{path('admin_types')}}">Admin Type Mouvement</a>
+              </div>
+            </li>
           </li>
       </ul>
     </div>

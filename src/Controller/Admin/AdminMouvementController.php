@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -44,7 +45,7 @@ class AdminMouvementController extends AbstractController
             ->add('consignes', TextareaType::class)
             ->add('erreur', TextType::class)
             ->add('correctif', TextType::class)
-            ->add('image', TextType::class)
+            ->add('imageFile', FileType::class, ['required'=>false])
             ->add('typeMouvements', EntityType::class, [ 
                 'class' => TypeMouvement::class, 
                 'choice_label' => 'libelle',
