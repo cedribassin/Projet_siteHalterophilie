@@ -6,7 +6,7 @@
 {% for type in types %}
 <div class="row align-items-center">
     <div class="col-8 text-center">
-        <h2 class="m-2">{{ type.libelle }}</h2> 
+        <h2 class="m-2">{{ type.libelle|capitalize }}</h2> 
         <p class="ml-3 text-justify policePerso" >
             {{ type.description }}
         </p>
