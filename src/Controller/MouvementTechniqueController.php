@@ -12,9 +12,9 @@ class MouvementTechniqueController extends AbstractController
     /**
      * @Route("/client/mouvements_technique", name="mouvements_technique")
      */
-    public function index(MouvementTechniqueRepository $repository)
+    public function index(MouvementTechniqueRepository $repository1)
     {
-        $mvtTech = $repository->findAll();
+        $mvtTech = $repository1->findAll();
         return $this->render('mouvement_technique/mouvementTechniques.html.twig', [
             'mvtTechniques' => $mvtTech
         ]);

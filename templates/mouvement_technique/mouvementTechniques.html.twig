@@ -3,14 +3,23 @@
 {% block title %}Analyse technique{% endblock %}
 {% block monTitre %}Analyse technique des mouvements{% endblock %}
 {% block body %}
-{% for mvt in mvtTechniques %}
-<div class="row m-3">
+    {% for mvt in mvtTechniques %}
+    <div class="row m-3">
     <div class="col">
-        {{mvt.libelle}}
-        {% for phase in mvt %}
-            {{phase.titre}}
-        {% endfor %}
+    <h2>{{mvt.libelle}}</h2>
+    {% for phase in mvt.phases %}
+    <div class="row">
+        <div class="col-9">
+        <h4>{{phase.titre}}</h4>
+        <p>{{phase.libelle}}</p>
+        </div>
+        <div class="col-3">
+            <img src="https://via.placeholder.com/350x150">
+        </div>
+    </div>
+    {% endfor %}
     </div>
 </div>
-{% endfor %}
+
+    {% endfor %}
 {% endblock %}
