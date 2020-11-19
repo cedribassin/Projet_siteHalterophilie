@@ -5,7 +5,7 @@
 {% block body %}
 <div class="row">
     <div class="col"></div>
-    <div class="col-6 m-3">
+    <div class="col-6 m-3 text-center">
         {{ form_start(form) }}
             {{ form_widget(form) }}
             <input type="submit"/>
@@ -17,7 +17,7 @@
     <div class="col-3">
         <table class="table">
             <thead>
-              <tr>
+              <tr class="table-active">
                 <th scope="col">Semi-techniques de l'arraché</th>
                 <th scope="col">charges théoriques</th>
               </tr>
@@ -35,7 +35,7 @@
     <div class="col-3">
         <table class="table">
             <thead>
-              <tr>
+              <tr class="table-active">
                 <th scope="col">Semi-techniques de l'épaulé</th>
                 <th scope="col">charges théoriques</th>
               </tr>
@@ -50,5 +50,24 @@
             </tbody>
         </table>
     </div>
+    <div class="col-3">
+        <table class="table">
+            <thead>
+              <tr class="table-active">
+                <th scope="col">Semi-techniques du jeté</th>
+                <th scope="col">charges théoriques</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for charge in chargesJet %}
+                <tr>
+                    <td>{{charge.nom}}</td>
+                    <td>{{charge.charge}}</td>
+                  </tr>    
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
 </div>
 {% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Analyse technique{% endblock %}
+{% block monTitre %}Analyse technique des mouvements{% endblock %}
+{% block body %}
+{% for mvt in mvtTechniques %}
+<div class="row m-3">
+    <div class="col">
+        {{mvt.libelle}}
+        {% for phase in mvt %}
+            {{phase.titre}}
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

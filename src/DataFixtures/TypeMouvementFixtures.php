@@ -13,7 +13,7 @@ class TypeMouvementFixtures extends Fixture
     {
         // $product = new Product();
         // $manager->persist($product);
-        $typeMouvement1 = new TypeMouvement();
+       /*  $typeMouvement1 = new TypeMouvement();
         $typeMouvement1->setLibelle("Mouvement debout")
         ->setDescription("Les mouvements debout consistent à supprimer la phase du passage 
         lors de l’arraché, l’épaulé ou encore le jeté. En comparaison du mouvement global, 
@@ -76,6 +76,6 @@ class TypeMouvementFixtures extends Fixture
         $manager->persist($mouvDebout5);
 
 
-        $manager->flush();
+        $manager->flush(); */
     }
 }
