@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin phases{% endblock %}
+{% block monTitre %}Admin Phases{% endblock %}
+{% block body %}
+<a href="{{path('admin_phase_creation')}}" class="m-3 btn btn-success btn-lg btn-block">Ajouter</a>
+    {% for phase in phases %}
+        <div class="row m-2 border border-secondary">
+            <div class="col-9">
+                <h4>{{phase.titre}}</h4>
+                <p>{{phase.libelle}}</p>
+            </div>
+            <div class="col-3">
+                <div class="row m-2">
+                    <a href="{{path('admin_phase_modification', {"id": phase.id})}}" class="m-2 btn btn-warning">Modifier</a>
+                </div>
+                <div class="row m-2">
+                    <form method="POST" action="{{path('admin_phases_suppression', {'id': phase.id })}}" style="display:inline-block" onsubmit="return confirm('Confirmer la suppression ?')">
+                        <!--On rajoutant la ligne suivants, on va pouvoir tester dans le controller sur quelle méthode
+                        on veut recevoir les informations (CF dans les routes de la fonction suppressionPhase())-->
+                        <input type="hidden" name="_method" value="delete">
+                        <!-- On rajoute un token pour sécuriser la supression avec la fonction twig csrf_token(), SUP correspond 
+                        à une valeur que l'on a définit, ça aurait pu être autre chose... -->
+                        <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ phase.id)}}">
+                        <input type="submit" class="btn btn-danger" value="supprimer">
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

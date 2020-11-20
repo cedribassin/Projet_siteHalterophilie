@@ -60,9 +60,15 @@ class CalculMouvementController extends AbstractController
 
 
         $form = $this->createFormBuilder()
-        ->add('arrache', IntegerType::class, ['label'=>'Arraché'])
-        ->add('epaule', IntegerType::class, ['label'=>'Epaulé'])
-        ->add('jete', IntegerType::class, ['label'=>'Jeté'])
+        ->add('arrache', IntegerType::class, ['label'=>'Arraché'], [
+            'required' => false,
+        ])
+        ->add('epaule', IntegerType::class, ['label'=>'Epaulé'], [
+            'required' => false,
+        ])
+        ->add('jete', IntegerType::class, ['label'=>'Jeté'], [
+            'required' => false,
+        ])
         ->getForm();
 
      $form->handleRequest($request);

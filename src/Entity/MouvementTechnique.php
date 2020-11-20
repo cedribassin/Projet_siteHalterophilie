@@ -25,7 +25,7 @@ class MouvementTechnique
     private $libelle;
 
     /**
-     * @ORM\OneToMany(targetEntity=Phase::class, mappedBy="MvtTechnique")
+     * @ORM\OneToMany(targetEntity=Phase::class, mappedBy="MvtTechnique", cascade={"persist"})
      */
     private $phases;
 

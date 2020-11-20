@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\PhaseRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PhaseRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=PhaseRepository::class)
@@ -33,7 +35,7 @@ class Phase
     private $imageName;
 
     /**
-     * @ORM\ManyToOne(targetEntity=MouvementTechnique::class, inversedBy="phases")
+     * @ORM\ManyToOne(targetEntity=MouvementTechnique::class, inversedBy="phases", cascade={"persist"})
      */
     private $MvtTechnique;
 
