@@ -3,6 +3,11 @@
 {% block title %}Admin phases{% endblock %}
 {% block monTitre %}Admin Phases{% endblock %}
 {% block body %}
+{% for message in app.flashes('success') %}<!--On récupère tous les messages de type success-->
+  <div class="alert alert-success">
+    {{message}}
+  </div>
+{% endfor %}
 <a href="{{path('admin_phase_creation')}}" class="m-3 btn btn-success btn-lg btn-block">Ajouter</a>
     {% for phase in phases %}
         <div class="row m-2 border border-secondary">

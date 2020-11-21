@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
@@ -18,7 +19,7 @@ class PhaseType extends AbstractType
         $builder
         ->add('titre', TextType::class)
         ->add('libelle', TextareaType::class)
-        ->add('imageName', TextType::class)
+        ->add('imageFile', FileType::class, ['required'=>false])
         ->add('MvtTechnique', EntityType::class, [
             'class' => MouvementTechnique::class, 
             'choice_label' => 'libelle',

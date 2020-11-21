@@ -8,13 +8,13 @@
             <div class="col">
                 <h2>{{mvt.libelle}}</h2>
                 {% for phase in mvt.phases %}
-                    <div class="row m-2">
-                        <div class="col-9">
+                    <div class="row m-2 justify-content-center">
+                        <div class="col-8 text-justify">
                             <h4>{{phase.titre}}</h4>
                             <p>{{phase.libelle}}</p>
                         </div>
-                        <div class="col-3">
-                            <img src="https://via.placeholder.com/350x150">
+                        <div class="col-4">
+                            <img src="{{asset('images/phase/' ~ phase.imageName)}}" class="img-fluid rounded mx-auto d-block" style="max-height: 300px;">
                         </div>
                     </div>
             {% endfor %}

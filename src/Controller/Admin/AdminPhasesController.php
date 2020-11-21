@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -39,7 +40,7 @@ class AdminPhasesController extends AbstractController
         $form = $this->createFormBuilder($phase)
             ->add('titre', TextType::class)
             ->add('libelle', TextareaType::class)
-            ->add('imageName', TextType::class)
+            ->add('imageFile', FileType::class, ['required'=>false])
             ->add('MvtTechnique', EntityType::class, [
                 'class' => MouvementTechnique::class, 
                 'choice_label' => 'libelle',
