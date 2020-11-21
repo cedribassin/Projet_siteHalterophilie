@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin Mvt Tech{% endblock %}
+{% block monTitre %}Admin mvt techniques{% endblock %}
+{% block body %}
+<div class="row m-3">
+    <a href="{{path('admin_mouvements_tech_creation')}}" class="m-3 btn btn-success btn-lg btn-block">Ajouter</a>
+    {% for mvt in mvtTech %}
+        <div class="col m-2 border border-dark">
+            <h4>{{mvt.libelle}}</h4>
+            <a href="{{path('admin_mouvements_tech_modification', {"id": mvt.id})}}" class="m-2 btn btn-warning">Modifier</a>
+            <form method="POST" action="{{path('admin_mouvements_tech_suppression', {'id': mvt.id })}}" style="display:inline-block" onsubmit="return confirm('Confirmer la suppression ?')">
+                <input type="hidden" name="_method" value="delete">
+                <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ mvt.id)}}">
+                <input type="submit" class="btn btn-danger" value="supprimer">
+            </form>
+</div>
+    {% endfor %}
+</div>
+{% endblock %}
