@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Apprentissage{% endblock %}
+{% block monTitre %}Apprentissage de l'haltérophilie{% endblock %}
+{% block body %}
+    {% for principe in apprentissage %}
+        <div class="row m-3">
+            <div class="col text-justify">
+                <h2>{{principe.titre}}</h2>
+                <p>{{principe.texte}}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
