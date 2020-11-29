@@ -27,6 +27,11 @@ class Etape
      */
     private $apprentissage;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $libelle;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Etape
     public function setApprentissage(?Apprentissage $apprentissage): self
     {
         $this->apprentissage = $apprentissage;
+
+        return $this;
+    }
+
+    public function getLibelle(): ?string
+    {
+        return $this->libelle;
+    }
+
+    public function setLibelle(string $libelle): self
+    {
+        $this->libelle = $libelle;
 
         return $this;
     }

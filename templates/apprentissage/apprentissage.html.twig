@@ -8,6 +8,10 @@
             <div class="col text-justify">
                 <h2>{{principe.titre}}</h2>
                 <p>{{principe.texte}}</p>
+                {% for etape in principe.etape %}
+                    <h4>{{etape.gesteConcerne}}</h4>
+                    <p>{{etape.libelle}}</p>
+                {% endfor %}
             </div>
         </div>
     {% endfor %}

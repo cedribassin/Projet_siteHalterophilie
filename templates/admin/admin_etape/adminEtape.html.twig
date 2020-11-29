@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin etape{% endblock %}
+{% block monTitre %}Administration etape{% endblock %}
+{% block body %}
+<a href="{{path('admin_etape_creation')}}" class="m-3 btn btn-success btn-lg btn-block">Ajouter</a>
+{% for etape in etapes %}
+<div class="row">
+    <div class="col">
+        <h4>{{ etape.gesteConcerne }}</h4>
+    </div>
+    <div class="col">
+        <div class="row">
+            <a href="{{path("admin_etape_modification", {"id": etape.id })}}" class="m-2 btn btn-warning">Modifier</a>
+        </div>
+        <div class="row align-items-center">
+            <form method="POST" action="{{path('admin_etape_suppression', {'id': etape.id })}}" style="display:inline-block" onsubmit="return confirm('Confirmer la suppression ?')">
+                <!--On rajoutant la ligne suivants, on va pouvoir tester dans le controller sur quelle méthode
+                on veut recevoir les informations (CF dans les routes de la fonction suppressionAliment())-->
+                <input type="hidden" name="_method" value="delete">
+                <!-- On rajoute un token pour sécuriser la supression avec la fonction twig csrf_token(), SUP correspond 
+                à une valeur que l'on a définit, ça aurait pu être autre chose... -->
+                <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ etape.id)}}">
+                <input type="submit" class="btn btn-danger" value="supprimer">
+            </form>
+        </div>    
+    </div>
+
+</div>
+{% endfor %}
+{% endblock %}
