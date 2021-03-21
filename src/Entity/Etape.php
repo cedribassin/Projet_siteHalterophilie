@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EtapeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,6 +33,16 @@ class Etape
      * @ORM\Column(type="text")
      */
     private $libelle;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Educatif::class, mappedBy="etape")
+     */
+    private $educatifs;
+
+    public function __construct()
+    {
+        $this->educatifs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -69,6 +81,37 @@ class Etape
     public function setLibelle(string $libelle): self
     {
         $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Educatif[]
+     */
+    public function getEducatifs(): Collection
+    {
+        return $this->educatifs;
+    }
+
+    public function addEducatif(Educatif $educatif): self
+    {
+        if (!$this->educatifs->contains($educatif)) {
+            $this->educatifs[] = $educatif;
+            $educatif->setEtape($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEducatif(Educatif $educatif): self
+    {
+        if ($this->educatifs->contains($educatif)) {
+            $this->educatifs->removeElement($educatif);
+            // set the owning side to null (unless already changed)
+            if ($educatif->getEtape() === $this) {
+                $educatif->setEtape(null);
+            }
+        }
 
         return $this;
     }
