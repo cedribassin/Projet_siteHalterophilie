@@ -4,17 +4,16 @@
 {% block monTitre %}Les différentes familles de mouvements{% endblock %}
 {% block body %}
 {% for type in types %}
-<div class="row align-items-center">
-    <div class="col-8 text-center">
-        <h2 class="m-2">{{ type.libelle|capitalize }}</h2> 
-        <p class="ml-3 text-justify" >
+<div class="row d-flex align-items-center mb-2">
+    <h2 class="m-2 text-center">{{ type.libelle|capitalize }}</h2> 
+    <div class="col lh-base fs-4" style="text-align: justify;">
+            <img  class="float-end d-none d-md-block" src="{{asset('images/type/' ~ type.image)}}" alt="">
             {{ type.description }}
-        </p>
+    </div>
+    <div class="text-center">
         <a href="{{path('afficher_type_mouvement', {'id': type.id})}}" class="btn btn-primary">Detail</a>
     </div>
-    <div class="col-4 ">
-        <img src="{{asset('images/type/' ~ type.image)}}" alt="">
-    </div>
 </div>
+<hr>
 {% endfor %}
 {% endblock %}

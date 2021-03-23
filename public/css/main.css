@@ -3,3 +3,19 @@
     font-size: xx-large;    
     padding: 15px;
 }
+
+.imgArticle{
+    width: 50%;
+    height: auto;
+    background-color: greenyellow;
+}
+
+@media only screen and (max-width: 576px){
+
+.imgArticle{
+    width: 100%;
+    height: auto;
+    background-color: red;
+}
+
+ } 

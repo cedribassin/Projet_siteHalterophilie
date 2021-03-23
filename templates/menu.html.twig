@@ -1,12 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
-    <!--path me permet d'utiliser directement le nom de la route définit dans AccueilController -->
-    <a class="navbar-brand" href="{{ path("accueil") }}"><img src="{{asset('images/logoSite.jpg')}}" class="rounded img-fluid" style="width: 125px;"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ path("accueil") }}"><img src="{{asset('images/logoSite.jpg')}}" class="rounded img-fluid" style="width: 125px;"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
                 <a class="nav-link" href="{{ path("accueil") }}">L'halterophilie</a>
             </li>
@@ -22,19 +21,21 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ path("apprentissage") }}">Apprentissage</a>
             </li>
-            <li class="nav-item dropdown show">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administration</a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{path('admin_mouvements')}}">Admin Mouvement</a>
-                <a class="dropdown-item" href="{{path('admin_types')}}">Admin Type Mouvement</a>
-                <a class="dropdown-item" href="{{path('admin_phases')}}">Admin Phases</a>
-                <a class="dropdown-item" href="{{path('admin_mouvements_tech')}}">Admin mouvements techniques</a>
-                <a class="dropdown-item" href="{{path('admin_apprentissage')}}">Admin apprentissage</a>
-                <a class="dropdown-item" href="{{path('admin_etape')}}">Admin etape</a>
-                <a class="dropdown-item" href="{{path('admin_educatif')}}">Admin educatif</a>
-              </div>
-            </li>
-          </li>
-      </ul>
-    </div>
-  </nav>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                Administration
+              </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <li><a class="dropdown-item" href="{{path('admin_mouvements')}}">Admin Mouvement</a></li>
+                  <li><a class="dropdown-item" href="{{path('admin_types')}}">Admin Type Mouvement</a></li>
+                  <li><a class="dropdown-item" href="{{path('admin_phases')}}">Admin Phases</a></li>
+                  <li><a class="dropdown-item" href="{{path('admin_mouvements_tech')}}">Admin mouvements techniques</a></li>
+                  <li><a class="dropdown-item" href="{{path('admin_apprentissage')}}">Admin apprentissage</a></li>
+                  <li><a class="dropdown-item" href="{{path('admin_etape')}}">Admin etape</a></li>
+                  <li><a class="dropdown-item" href="{{path('admin_educatif')}}">Admin educatif</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+  </div>
+</nav>
