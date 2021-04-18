@@ -5,37 +5,44 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path("accueil") }}">L'halterophilie</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ path("mouvements_technique") }}">Analyse des mouvements</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path("mouvements") }}">Les mouvements halterophiles</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ path("calcul_mouvement") }}">Calculez vos charges</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ path("apprentissage") }}">Apprentissage</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                Administration
-              </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <li><a class="dropdown-item" href="{{path('admin_mouvements')}}">Admin Mouvement</a></li>
-                  <li><a class="dropdown-item" href="{{path('admin_types')}}">Admin Type Mouvement</a></li>
-                  <li><a class="dropdown-item" href="{{path('admin_phases')}}">Admin Phases</a></li>
-                  <li><a class="dropdown-item" href="{{path('admin_mouvements_tech')}}">Admin mouvements techniques</a></li>
-                  <li><a class="dropdown-item" href="{{path('admin_apprentissage')}}">Admin apprentissage</a></li>
-                  <li><a class="dropdown-item" href="{{path('admin_etape')}}">Admin etape</a></li>
-                  <li><a class="dropdown-item" href="{{path('admin_educatif')}}">Admin educatif</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-  </div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ path("accueil") }}">L'halterophilie</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ path("mouvements_technique") }}">Analyse des mouvements</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ path("mouvements") }}">Les mouvements halterophiles</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ path("calcul_mouvement") }}">Calculez vos charges</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ path("apprentissage") }}">Apprentissage</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  Programmation
+                </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="{{path('admin_mouvements')}}">2 séances/semaine</a></li>
+                  </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  Administration
+                </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="{{path('admin_mouvements')}}">Admin Mouvement</a></li>
+                    <li><a class="dropdown-item" href="{{path('admin_types')}}">Admin Type Mouvement</a></li>
+                    <li><a class="dropdown-item" href="{{path('admin_phases')}}">Admin Phases</a></li>
+                    <li><a class="dropdown-item" href="{{path('admin_mouvements_tech')}}">Admin mouvements techniques</a></li>
+                    <li><a class="dropdown-item" href="{{path('admin_apprentissage')}}">Admin apprentissage</a></li>
+                    <li><a class="dropdown-item" href="{{path('admin_etape')}}">Admin etape</a></li>
+                    <li><a class="dropdown-item" href="{{path('admin_educatif')}}">Admin educatif</a></li>
+                  </ul>
+              </li>
+        </ul>
+     </div>
 </nav>

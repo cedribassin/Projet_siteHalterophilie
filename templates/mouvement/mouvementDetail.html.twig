@@ -17,8 +17,8 @@
         <p class="text-justify">{{mouvement.correctif}}</p>
         <div class="text-center"><a href="{{path('mouvements')}}" class="btn btn-primary">Retour au mouvements</a></div>
     </div>
-    <div class="col">
-        <img src="{{asset('images/mouvementListe/' ~ mouvement.image)}}" alt="">
+    <div class="col d-flex align-items-center">
+        <img class="img-fluid" src="{{asset('images/mouvementListe/' ~ mouvement.image)}}" alt="">
     </div>
 </div>
 {% endblock %}

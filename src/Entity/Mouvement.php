@@ -75,6 +75,11 @@ class Mouvement
      */
     private $updated_at;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Seance::class, inversedBy="mouvement")
+     */
+    private $seance;
+
     public function __construct()
     {
         $this->typeMouvements = new ArrayCollection();
@@ -219,6 +224,18 @@ class Mouvement
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getSeance(): ?Seance
+    {
+        return $this->seance;
+    }
+
+    public function setSeance(?Seance $seance): self
+    {
+        $this->seance = $seance;
 
         return $this;
     }
