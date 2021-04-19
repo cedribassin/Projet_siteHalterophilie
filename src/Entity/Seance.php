@@ -44,6 +44,11 @@ class Seance
      */
     private $mouvement;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $titre;
+
     public function __construct()
     {
         $this->mouvement = new ArrayCollection();
@@ -129,6 +134,18 @@ class Seance
                 $mouvement->setSeance(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(string $titre): self
+    {
+        $this->titre = $titre;
 
         return $this;
     }
