@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Mouvement;
+use App\Entity\Seance;
 use App\Form\MouvementType;
 use App\Entity\TypeMouvement;
 use App\Repository\MouvementRepository;
@@ -84,6 +85,4 @@ class AdminMouvementController extends AbstractController
         return $this->redirectToRoute("admin_mouvements");
         }
     }
-
-
 }

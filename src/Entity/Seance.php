@@ -20,34 +20,34 @@ class Seance
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
-    private $nombreSerie;
+    private $nom;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $nombreReps;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $intensite;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $recuperation;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Mouvement::class, mappedBy="seance")
+     * @ORM\ManyToMany(targetEntity=Mouvement::class, inversedBy="seances")
      */
     private $mouvement;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $titre;
+    private $intensite;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nbSerie;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nbRepetition;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $recuperation;
 
     public function __construct()
     {
@@ -59,50 +59,14 @@ class Seance
         return $this->id;
     }
 
-    public function getNombreSerie(): ?int
+    public function getNom(): ?string
     {
-        return $this->nombreSerie;
+        return $this->nom;
     }
 
-    public function setNombreSerie(int $nombreSerie): self
+    public function setNom(string $nom): self
     {
-        $this->nombreSerie = $nombreSerie;
-
-        return $this;
-    }
-
-    public function getNombreReps(): ?int
-    {
-        return $this->nombreReps;
-    }
-
-    public function setNombreReps(int $nombreReps): self
-    {
-        $this->nombreReps = $nombreReps;
-
-        return $this;
-    }
-
-    public function getIntensite(): ?int
-    {
-        return $this->intensite;
-    }
-
-    public function setIntensite(int $intensite): self
-    {
-        $this->intensite = $intensite;
-
-        return $this;
-    }
-
-    public function getRecuperation(): ?int
-    {
-        return $this->recuperation;
-    }
-
-    public function setRecuperation(int $recuperation): self
-    {
-        $this->recuperation = $recuperation;
+        $this->nom = $nom;
 
         return $this;
     }
@@ -119,7 +83,6 @@ class Seance
     {
         if (!$this->mouvement->contains($mouvement)) {
             $this->mouvement[] = $mouvement;
-            $mouvement->setSeance($this);
         }
 
         return $this;
@@ -129,23 +92,55 @@ class Seance
     {
         if ($this->mouvement->contains($mouvement)) {
             $this->mouvement->removeElement($mouvement);
-            // set the owning side to null (unless already changed)
-            if ($mouvement->getSeance() === $this) {
-                $mouvement->setSeance(null);
-            }
         }
 
         return $this;
     }
 
-    public function getTitre(): ?string
+    public function getIntensite(): ?string
     {
-        return $this->titre;
+        return $this->intensite;
     }
 
-    public function setTitre(string $titre): self
+    public function setIntensite(string $intensite): self
     {
-        $this->titre = $titre;
+        $this->intensite = $intensite;
+
+        return $this;
+    }
+
+    public function getNbSerie(): ?string
+    {
+        return $this->nbSerie;
+    }
+
+    public function setNbSerie(string $nbSerie): self
+    {
+        $this->nbSerie = $nbSerie;
+
+        return $this;
+    }
+
+    public function getNbRepetition(): ?string
+    {
+        return $this->nbRepetition;
+    }
+
+    public function setNbRepetition(string $nbRepetition): self
+    {
+        $this->nbRepetition = $nbRepetition;
+
+        return $this;
+    }
+
+    public function getRecuperation(): ?string
+    {
+        return $this->recuperation;
+    }
+
+    public function setRecuperation(string $recuperation): self
+    {
+        $this->recuperation = $recuperation;
 
         return $this;
     }

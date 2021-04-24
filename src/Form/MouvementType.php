@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Mouvement;
+use App\Entity\Seance;
 use App\Entity\TypeMouvement;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

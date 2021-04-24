@@ -76,13 +76,15 @@ class Mouvement
     private $updated_at;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Seance::class, inversedBy="mouvement")
+     * @ORM\ManyToMany(targetEntity=Seance::class, mappedBy="mouvement")
      */
-    private $seance;
+    private $seances;
+
 
     public function __construct()
     {
         $this->typeMouvements = new ArrayCollection();
+        $this->seances = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -228,15 +230,32 @@ class Mouvement
         return $this;
     }
 
-    public function getSeance(): ?Seance
+    /**
+     * @return Collection|Seance[]
+     */
+    public function getSeances(): Collection
     {
-        return $this->seance;
+        return $this->seances;
     }
 
-    public function setSeance(?Seance $seance): self
+    public function addSeance(Seance $seance): self
     {
-        $this->seance = $seance;
+        if (!$this->seances->contains($seance)) {
+            $this->seances[] = $seance;
+            $seance->addMouvement($this);
+        }
 
         return $this;
     }
+
+    public function removeSeance(Seance $seance): self
+    {
+        if ($this->seances->contains($seance)) {
+            $this->seances->removeElement($seance);
+            $seance->removeMouvement($this);
+        }
+
+        return $this;
+    }
+
 }
