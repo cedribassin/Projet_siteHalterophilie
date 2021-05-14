@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}admin programme{% endblock %}
+{% block monTitre %}Administration des programmes{% endblock %}
+{% block body %}
+{% for message in app.flashes('success') %}
+<!--On récupère tous les messages de type success-->
+<div class="alert alert-success">
+    {{message}}
+</div>
+{% endfor %}
+<a href="{{path('admin_programme_creation')}}" class="m-3 btn btn-success btn-lg btn-block">Ajouter</a>
+{% for programme in programmes %}
+<div class="row m-2">
+    <div class="col border border-dark justify-content-center m-3">
+        <h3>{{programme.nom}}</h3>
+    </div>
+    <div class="col">
+        <div class="row ">
+            <a href="{{path('admin_modification_programme', {"id": programme.id })}}"
+                class="m-2 btn btn-warning">Modifier</a>
+        </div>
+        <div class="row align-items-center">
+            <form method="POST" action="{{path('admin_suppression_programme', {'id': programme.id })}}"
+                style="display:inline-block" onsubmit="return confirm('Confirmer la suppression ?')">
+                <!--On rajoutant la ligne suivants, on va pouvoir tester dans le controller sur quelle méthode
+                    on veut recevoir les informations (CF dans les routes de la fonction suppressionSeance())-->
+                <input type="hidden" name="_method" value="delete">
+                <!-- On rajoute un token pour sécuriser la supression avec la fonction twig csrf_token(), SUP correspond 
+                    à une valeur que l'on a définit, ça aurait pu être autre chose... -->
+                <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ programme.id)}}">
+                <input type="submit" class="btn btn-danger" value="supprimer">
+            </form>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

@@ -25,7 +25,7 @@ class Seance
     private $nom;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Mouvement::class, inversedBy="seances")
+     * @ORM\ManyToMany(targetEntity=Mouvement::class, inversedBy="seances", cascade={"persist"})
      */
     private $mouvement;
 
@@ -48,6 +48,11 @@ class Seance
      * @ORM\Column(type="string", length=255)
      */
     private $recuperation;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Programme::class, inversedBy="seance")
+     */
+    private $programme;
 
     public function __construct()
     {
@@ -141,6 +146,18 @@ class Seance
     public function setRecuperation(string $recuperation): self
     {
         $this->recuperation = $recuperation;
+
+        return $this;
+    }
+
+    public function getProgramme(): ?Programme
+    {
+        return $this->programme;
+    }
+
+    public function setProgramme(?Programme $programme): self
+    {
+        $this->programme = $programme;
 
         return $this;
     }

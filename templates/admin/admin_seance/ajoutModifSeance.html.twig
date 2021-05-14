@@ -13,10 +13,10 @@ form_widget pour afficher le formulaire (de base), et form_end pour le fermer --
   1-on indique sur quel élément (ici le nom) 
   2- on indique qu'on rajoute un attribut ("attr") qui sera de type class avec la valeur text-danger
   3- on peut modifier aussi les info liées au label en rajoutant "label":"..." -->
-            <div>{{form_row(form.titre)}}</div>
+            <div>{{form_row(form.nom)}}</div>
             <div>{{form_row(form.mouvement)}}</div>
-            <div>{{form_row(form.nombreSerie)}}</div>
-            <div>{{ form_row(form.nombreReps) }}</div>
+            <div>{{form_row(form.nbSerie)}}</div>
+            <div>{{ form_row(form.nbRepetition) }}</div>
             <div>{{ form_row(form.intensite) }}</div>
             <div>{{ form_row(form.recuperation) }}</div>
         </div>

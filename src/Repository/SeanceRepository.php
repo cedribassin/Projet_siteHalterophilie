@@ -19,6 +19,16 @@ class SeanceRepository extends ServiceEntityRepository
         parent::__construct($registry, Seance::class);
     }
 
+    //Fonction qui permet de récupérer les seances selon leur nom
+    public function getSeanceParNom($value)
+    {
+        return $this->createQueryBuilder('m')
+            ->andWhere('m.nom like :val')
+            ->setParameter('val', '%' . $value . '%')
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Seance[] Returns an array of Seance objects
     //  */

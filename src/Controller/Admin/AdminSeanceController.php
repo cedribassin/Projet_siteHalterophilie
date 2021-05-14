@@ -9,7 +9,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -36,11 +35,11 @@ class AdminSeanceController extends AbstractController
             $seance = new Seance();
         }
         $form = $this->createFormBuilder($seance)
-            ->add('nombreSerie', IntegerType::class)
-            ->add('nombreReps',  IntegerType::class)
-            ->add('intensite',  IntegerType::class)
-            ->add('recuperation',  IntegerType::class)
-            ->add('titre', TextType::class)
+            ->add('nom', TextType::class)
+            ->add('nbSerie', TextType::class)
+            ->add('nbRepetition',  TextType::class)
+            ->add('intensite',  TextType::class)
+            ->add('recuperation',  TextType::class)
             ->add('mouvement', EntityType::class, [
                 'class' => Mouvement::class,
                 'choice_label' => 'nom',

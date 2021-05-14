@@ -76,7 +76,7 @@ class Mouvement
     private $updated_at;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Seance::class, mappedBy="mouvement")
+     * @ORM\ManyToMany(targetEntity=Seance::class, mappedBy="mouvement", cascade={"persist"})
      */
     private $seances;
 
