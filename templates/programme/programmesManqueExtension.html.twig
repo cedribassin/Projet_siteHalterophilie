@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Programmes{% endblock %}
+{% block monTitre %}Les différents programmes d'entraînement{% endblock %}
+{% block body %}
+{% for programme in programmes %}
+{{programme.nom}}
+{% for seance in programme.seance %}
+<div class="text-center">
+    <h3>{{seance.nom}}</h3>
+</div>
+<div class="row justify-content-around">
+    <div class="col">
+        <table class="table table-bordered border-primary">
+            <thead class="align-middle text-center">
+                <tr class="table-active border-3">
+                    <th scope="col">Mouvements</th>
+                    <th scope="col">Intensite</th>
+                    <th scope="col">Reps</th>
+                    <th scope="col">Series</th>
+                    <th scope="col">Recup</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mvt in seance.mouvement %}
+                <tr class="border-2">
+                    <td>{{mvt.nom}}</td>
+                    <td>{{seance.intensite}}</td>
+                    <td>{{seance.nbRepetition}}</td>
+                    <td>{{seance.nbSerie}}</td>
+                    <td>{{seance.recuperation}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endfor %}
+{% endfor %}
+{% endblock %}

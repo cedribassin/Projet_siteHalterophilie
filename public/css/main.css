@@ -8,14 +8,6 @@
     background-color: #3B73F5;
 }
 
-.site-content{
-    flex: 1;
-}
-
-.footerAbsolute{
-    position: absolute;
-}
-
 @media only screen and (max-width: 576px){
 
 .imgArticle{

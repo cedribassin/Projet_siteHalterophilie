@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Mouvement;
+use App\Entity\Programme;
 use App\Entity\Seance;
 use App\Repository\SeanceRepository;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -40,6 +41,11 @@ class AdminSeanceController extends AbstractController
             ->add('nbRepetition',  TextType::class)
             ->add('intensite',  TextType::class)
             ->add('recuperation',  TextType::class)
+            ->add('programme', EntityType::class, [
+                'class' => Programme::class,
+                'choice_label' => 'nom',
+                'expanded' => true,
+            ])
             ->add('mouvement', EntityType::class, [
                 'class' => Mouvement::class,
                 'choice_label' => 'nom',

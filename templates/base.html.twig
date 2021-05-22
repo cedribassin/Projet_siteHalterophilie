@@ -7,8 +7,7 @@
         <link rel="stylesheet" href="{{asset('css/main.css')}}">
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>
-        <div class="site-content">
+    <body class="d-flex flex-column min-vh-100">
         {% include "menu.html.twig" %}
         <div class="container">
         <!-- On formatte les titres h1 pour toutes nos pages html-->
@@ -16,7 +15,6 @@
             {% block body %}
             {% endblock %}
         </div>
-    </div>
         {% include "footer.html.twig" %}    
         {% block javascripts %}{% endblock %}
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>

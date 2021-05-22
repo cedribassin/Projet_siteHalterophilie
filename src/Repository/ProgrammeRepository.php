@@ -19,6 +19,16 @@ class ProgrammeRepository extends ServiceEntityRepository
         parent::__construct($registry, Programme::class);
     }
 
+    //Fonction qui permet de récupérer les programme selon leur nom
+    public function getProgrammeParNom($value)
+    {
+        return $this->createQueryBuilder('m')
+            ->andWhere('m.nom like :val')
+            ->setParameter('val', '%' . $value . '%')
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Programme[] Returns an array of Programme objects
     //  */
