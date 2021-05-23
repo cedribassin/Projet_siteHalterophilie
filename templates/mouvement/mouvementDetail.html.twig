@@ -4,9 +4,10 @@
 {% block monTitre %}Détails du mouvement : {{mouvement.nom}} {% endblock %}
 {% block body %}
 <div class="row m-2">
-    <div class="col m-2">
+    <div class="col m-2 lh-base fs-4">
         <h2>Objectifs</h2>
-        <p class="text-justify">{{mouvement.objectif}}</p>
+        <p>{{mouvement.objectif}}</p>
+        <img class="img-fluid mx-auto d-block" src="{{asset('images/mouvementListe/' ~ mouvement.image)}}" alt="">
         <h2>Intensité du mouvement</h2>
         <p class="text-justify"><h5>{{mouvement.intensite}}% du mouvement technique</h5></p>
         <h2>Consignes</h2>
@@ -16,9 +17,6 @@
         <h2>Correctifs possibles</h2>
         <p class="text-justify">{{mouvement.correctif}}</p>
         <div class="text-center"><a href="{{path('mouvements')}}" class="btn btn-primary">Retour au mouvements</a></div>
-    </div>
-    <div class="col d-flex align-items-center">
-        <img class="img-fluid" src="{{asset('images/mouvementListe/' ~ mouvement.image)}}" alt="">
     </div>
 </div>
 {% endblock %}

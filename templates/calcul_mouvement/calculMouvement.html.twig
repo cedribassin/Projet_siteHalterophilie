@@ -5,20 +5,22 @@
 {% block body %}
 <div class="row">
     <div class="col d-flex align-items-center">
-      <img  class="img-fluid"  src="{{asset('images/exempleArrache.jpg')}}"  alt="">
+      <img class="img-fluid d-none d-md-block d-xl-block d-xxl-block" src="{{asset('images/exempleArrache.jpg')}}"
+        alt="dessin de l'arrache">
     </div>
-    <div class="col-6 m-3 text-center bgColorCalcul border rounded fw-bold">
+    <div class="col-md-6 col-xl-6 col-sm-9 m-3 text-center bgColorCalcul border rounded fw-bold">
         {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
             {{ form_widget(form) }}
             <input type="submit" class="m-3"/>
         {{ form_end(form) }}
     </div>
     <div class="col d-flex align-items-center">
-      <img  class="img-fluid" src="{{asset('images/exempleEJ.jpg')}}" alt="">
+      <img class="img-fluid d-none d-md-block d-xl-block d-xxl-block" src="{{asset('images/exempleEJ.jpg')}}"
+        alt="dessin de l'epaule-jete">
     </div>
 </div>
 <div class="row justify-content-around">
-    <div class="col-3">
+    <div class="col col-sm-12">
         <table class="table table-bordered border-primary">
             <thead class="align-middle text-center">
               <tr class="table-active border-3">
@@ -36,7 +38,7 @@
             </tbody>
         </table>
     </div>
-    <div class="col-3">
+    <div class="col col-sm-12">
       <table class="table table-bordered border-primary">
         <thead class="align-middle text-center">
           <tr class="table-active border-3">
@@ -54,7 +56,7 @@
             </tbody>
         </table>
     </div>
-    <div class="col-3">
+    <div class="col col-sm-12">
       <table class="table table-bordered border-primary">
         <thead class="align-middle text-center">
           <tr class="table-active border-3">

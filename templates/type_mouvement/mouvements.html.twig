@@ -7,12 +7,16 @@
 <div class="row d-flex align-items-center mb-2">
     <h2 class="m-2 text-center">{{ type.libelle|capitalize }}</h2> 
     <div class="col lh-base fs-4" style="text-align: justify;">
-            <img  class="float-end d-none d-md-block" src="{{asset('images/type/' ~ type.image)}}" alt="">
+            <img class="float-end d-none d-md-block d-xl-none d-xxl-none" src="{{asset('images/type/' ~ type.image)}}" alt="">
             {{ type.description }}
     </div>
-    <div class="text-center">
-        <a href="{{path('afficher_type_mouvement', {'id': type.id})}}" class="btn btn-primary">Detail</a>
-    </div>
+</div>
+<div class="row">
+    <img class="img-fluid rounded mx-auto d-block d-md-none" src="{{asset('images/type/' ~ type.image)}}" alt="">
+</div>
+
+<div class="text-center">
+    <a href="{{path('afficher_type_mouvement', {'id': type.id})}}" class="btn btn-primary">Detail</a>
 </div>
 <hr>
 {% endfor %}

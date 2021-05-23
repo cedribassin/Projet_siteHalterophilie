@@ -9,13 +9,18 @@
                 <h2>{{mvt.libelle}}</h2>
                 {% for phase in mvt.phases %}
                     <div class="row m-2 justify-content-center">
-                        <div class="col-8 text-justify">
+                        <div class="col-8 lh-base fs-4">
                             <h4>{{phase.titre}}</h4>
                             <p>{{phase.libelle}}</p>
                         </div>
                         <div class="col-4">
-                            <img src="{{asset('images/phase/' ~ phase.imageName)}}" class="img-fluid rounded mx-auto d-block" style="max-height: 300px;">
-                        </div>
+                            <img src="{{asset('images/phase/' ~ phase.imageName)}}" class="img-fluid rounded mx-auto d-block d-none d-md-block"
+                                style="max-height: 300px;">
+                            </div>
+                            <div class="row">
+                                <img src="{{asset('images/phase/' ~ phase.imageName)}}"
+                                    class="img-fluid rounded mx-auto d-none d-sm-block d-md-none" style="max-height: 300px;">
+                            </div>
                     </div>
             {% endfor %}
             </div>
