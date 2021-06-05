@@ -29,6 +29,7 @@
                     <li><a class="dropdown-item" href="{{path('programme_accueil')}}">Programmer mes séances</a></li>
                   </ul>
               </li>
+              {% if is_granted('ROLE_ADMIN') %}
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                   Administration
@@ -45,6 +46,8 @@
                     <li><a class="dropdown-item" href="{{path('admin_programme')}}">Admin programme</a></li>
                   </ul>
               </li>
+              {% endif %}
+              <!-- Si l'utilisateur est connecter on affiche seulement deconnexion -->
               {% if not app.user %}
               <li class="nav-item">
                   <a class="nav-link" href="{{path('inscription')}}">Inscription</a>

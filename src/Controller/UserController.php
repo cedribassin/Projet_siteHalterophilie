@@ -26,6 +26,7 @@ class UserController extends AbstractController
             $passwordCrypte = $encoder->encodePassword($user, $user->getPassword());
             //On modifie le password avec son setter:
             $user->setPassword($passwordCrypte);
+            $user->setRoles("ROLE_USER");
             $entityManager->persist($user);
             $entityManager->flush();
             return $this->redirectToRoute("programme_accueil");
