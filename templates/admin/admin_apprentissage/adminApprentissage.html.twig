@@ -3,31 +3,38 @@
 {% block title %}Admin apprentissage{% endblock %}
 {% block monTitre %}Administration apprentissage{% endblock %}
 {% block body %}
-<div class="row">
-    <div class="col-3"></div>
-    <div class="col-6 m-3">
-        <a href="{{path('admin_apprentissage_creation')}}" class="m-3 btn btn-success btn-lg btn-block">Ajouter</a>
-    </div>
-    <div class="col-3"></div>
+{% for message in app.flashes('success') %}
+<!--On récupère tous les messages de type success-->
+<div class="alert alert-success">
+    {{message}}
+</div>
+{% endfor %}
+<div class="d-grid gap-2">
+    <a href="{{path('admin_apprentissage_creation')}}" class="m-3 btn btn-success btn-lg btn-block">Ajouter</a>
 </div>
 {% for principe in principes %}
 <div class="row m-3 border border-dark">
-    <div class="col-6 text-justify">
+    <div class="col-7 text-justify">
         <h2>{{principe.titre}}</h2>
     </div>
-    <div class="col-1 border-left">
-        <div class="row m-2">
-            <a href="{{path('admin_apprentissage_ajout', {"id": principe.id})}}" class="m-2 btn btn-warning">Modifier</a>
+    <div class="col-5 border-left">
+        <div class="row">
+            <div class="d-grid gap-2">
+                <a href="{{path('admin_apprentissage_ajout', {'id': principe.id})}}"
+                    class="my-2 btn btn-warning">Modifier</a>
+            </div>
         </div>
-        <div class="row m-2">
+        <div class="row align-items-center">
             <form method="POST" action="{{path('admin_suppression_apprentissage', {'id': principe.id })}}" style="display:inline-block" onsubmit="return confirm('Confirmer la suppression ?')">
                 <!--On rajoutant la ligne suivants, on va pouvoir tester dans le controller sur quelle méthode
                 on veut recevoir les informations (CF dans les routes de la fonction suppressionAliment())-->
                 <input type="hidden" name="_method" value="delete">
                 <!-- On rajoute un token pour sécuriser la supression avec la fonction twig csrf_token(), SUP correspond 
                 à une valeur que l'on a définit, ça aurait pu être autre chose... -->
-                <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ principe.id)}}">
-                <input type="submit" class="btn btn-danger" value="supprimer">
+                <div class="d-grid gap-2">
+                    <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ principe.id)}}">
+                    <input type="submit" class="mb-2 btn btn-danger" value="supprimer">
+                    </div>
             </form>
         </div>
     </div>

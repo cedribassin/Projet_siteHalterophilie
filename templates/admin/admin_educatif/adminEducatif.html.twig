@@ -3,14 +3,25 @@
 {% block title %}Admin educatif{% endblock %}
 {% block monTitre %}Administration educatif{% endblock %}
 {% block body %}
-<a href="{{path('admin_educatif_creation')}}" class="m-3 btn btn-success btn-lg btn-block">Ajouter</a>
+{% for message in app.flashes('success') %}
+<!--On récupère tous les messages de type success-->
+<div class="alert alert-success">
+    {{message}}
+</div>
+{% endfor %}
+<div class="d-grid gap-2">
+    <a href="{{path('admin_educatif_creation')}}" class="m-3 btn btn-success btn-lg btn-block">Ajouter</a>
+</div>
 {% for educatif in educatifs %}
-<div class="row">
-    <div class="col">
+<div class="row m-2 border border-dark">
+    <div class="col justify-content-center m-3">
         <h4>{{ educatif.titre }}</h4>
     </div>
     <div class="col">
         <div class="row">
+            <div class="d-grid gap-2">
+                <a href="{{path('admin_modification_mouvement', {'id': educatif.id })}}" class="my-2 btn btn-warning">Modifier</a>
+            </div>
         </div>
         <div class="row align-items-center">
             <form method="POST" action="{{path('admin_educatif_suppression', {'id': educatif.id })}}"
@@ -20,8 +31,10 @@
                 <input type="hidden" name="_method" value="delete">
                 <!-- On rajoute un token pour sécuriser la supression avec la fonction twig csrf_token(), SUP correspond 
                 à une valeur que l'on a définit, ça aurait pu être autre chose... -->
-                <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ educatif.id)}}">
-                <input type="submit" class="btn btn-danger" value="supprimer">
+                <div class="d-grid gap-2">
+                    <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ educatif.id)}}">
+                    <input type="submit" class="mb-2 btn btn-danger" value="supprimer">
+                    </div>
             </form>
         </div>
     </div>

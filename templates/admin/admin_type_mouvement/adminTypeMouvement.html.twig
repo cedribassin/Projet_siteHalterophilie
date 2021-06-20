@@ -8,7 +8,9 @@
     {{message}}
   </div>
 {% endfor %}
-<a href="{{path('admin_typeMouvement_creation')}}" class="m-3 btn btn-success btn-lg btn-block">Ajouter</a>
+<div class="d-grid gap-2">
+    <a href="{{path('admin_typeMouvement_creation')}}" class="m-3 btn btn-success btn-lg btn-block">Ajouter</a>
+</div>
     {% for typeMvt in typeMvts %}
     <div class="row m-2">
         <div class="col border border-dark justify-content-center m-3">
@@ -17,15 +19,20 @@
         </div>
         <div class="col">
             <div class="row ">
-                <a href="{{path('admin_modification_typeMouvement', {"id": typeMvt.id })}}" class="m-2 btn btn-warning">Modifier</a>
+                <div class="d-grid gap-2">
+                    <a href="{{path('admin_modification_typeMouvement', {'id': typeMvt.id })}}"
+                        class="my-2 btn btn-warning">Modifier</a>
+                </div>
                 <form method="POST" action="{{path('admin_suppression_typeMouvement', {'id': typeMvt.id })}}" style="display:inline-block" onsubmit="return confirm('Confirmer la suppression ?')">
                     <!--On rajoutant la ligne suivants, on va pouvoir tester dans le controller sur quelle méthode
                     on veut recevoir les informations (CF dans les routes de la fonction suppressionAliment())-->
                     <input type="hidden" name="_method" value="delete">
                     <!-- On rajoute un token pour sécuriser la supression avec la fonction twig csrf_token(), SUP correspond 
                     à une valeur que l'on a définit, ça aurait pu être autre chose... -->
-                    <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ typeMvt.id)}}">
-                    <input type="submit" class="btn btn-danger" value="supprimer">
+                    <div class="d-grid gap-2">
+                        <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ typeMvt.id)}}">
+                        <input type="submit" class="btn btn-danger" value="supprimer">
+                        </div>
                 </form>
             </div>
         </div>

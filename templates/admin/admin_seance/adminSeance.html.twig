@@ -8,15 +8,19 @@
     {{message}}
   </div>
 {% endfor %}
-<a href="{{path('admin_seance_creation')}}" class="m-3 btn btn-success btn-lg btn-block">Ajouter</a>
+<div class="d-grid gap-2">
+    <a href="{{path('admin_seance_creation')}}" class="m-3 btn btn-success btn-lg btn-block">Ajouter</a>
+</div>
     {% for seance in seances %}
-    <div class="row m-2">
-        <div class="col border border-dark justify-content-center m-3">
+    <div class="row border border-dark m-2">
+        <div class="col justify-content-center m-3">
             <h3>{{seance.nom}}</h3>
         </div>
         <div class="col">
-            <div class="row ">
-                <a href="{{path("admin_modification_seance", {"id": seance.id })}}" class="m-2 btn btn-warning">Modifier</a>
+            <div class="row">
+                <div class="d-grid gap-2">
+                    <a href="{{path('admin_modification_seance', {'id': seance.id })}}" class="my-2 btn btn-warning">Modifier</a>
+                </div>
             </div>
             <div class="row align-items-center">
                 <form method="POST" action="{{path('admin_suppression_seance', {'id': seance.id })}}" style="display:inline-block" onsubmit="return confirm('Confirmer la suppression ?')">
@@ -25,8 +29,10 @@
                     <input type="hidden" name="_method" value="delete">
                     <!-- On rajoute un token pour sécuriser la supression avec la fonction twig csrf_token(), SUP correspond 
                     à une valeur que l'on a définit, ça aurait pu être autre chose... -->
-                    <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ seance.id)}}">
-                    <input type="submit" class="btn btn-danger" value="supprimer">
+                    <div class="d-grid gap-2">
+                        <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ seance.id)}}">
+                        <input type="submit" class="btn btn-danger" value="supprimer">
+                    </div>
                 </form>
             </div>
         </div>
